@@ -24,7 +24,7 @@
         android:textSize="18dp"/>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtCant"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cantidad de letras: "
@@ -114,7 +114,7 @@
     </RadioGroup>
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/cbxEX"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="X-TREAM" />
