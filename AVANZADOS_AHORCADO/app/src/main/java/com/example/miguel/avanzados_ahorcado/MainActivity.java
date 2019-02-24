@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (palabraActual){
             case "h o r m i g a":
-                txtPalabra.setText("h_ _ _ _ _ _");
+                txtPalabra.setText("h _ _ _ _ _ _");
                 break;
             case "m o v i l e s":
                 txtPalabra.setText("m _ _ _ _ _ _");
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 txtPalabra.setText("l _ _ _ _ _");
                 break;
             case "p a r t i d o":
-                txtPalabra.setText("p_ _ _ _ _ _");
+                txtPalabra.setText("p _ _ _ _ _ _");
                 break;
             case "m u n d o":
                 txtPalabra.setText("m _ _ _ _");

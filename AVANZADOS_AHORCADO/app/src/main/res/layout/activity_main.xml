@@ -29,7 +29,8 @@
         android:layout_height="wrap_content"
         android:text="Cantidad de letras: "
         android:gravity="right"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:paddingBottom="25dp"/>
 
 
     <LinearLayout
@@ -68,7 +69,8 @@
         android:layout_height="wrap_content"
         android:text="Intentos restantes: "
         android:gravity="right"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:paddingTop="25dp"/>
 
     <TextView
         android:id="@+id/textView5"
@@ -77,18 +79,20 @@
         android:text="CONFIGURACIÓN DEL JUEGO"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="16dp"/>
+        android:textSize="16dp"
+        android:paddingTop="30dp"/>
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tipo de nivel:"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:paddingTop="30dp"/>
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <RadioButton
             android:id="@+id/rdDif"
@@ -119,12 +123,12 @@
         android:layout_height="wrap_content"
         android:text="X-TREAM" />
 
+
     <Button
         android:id="@+id/btnNew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Intentar de nuevo"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center"/>
 
 </LinearLayout>
