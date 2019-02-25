@@ -99,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
                 txtVwCarUnoCom.setText(listaBaraja.get(1));
                 iPuntUsu+=getValorCarta(listaBaraja.get(0));
                 iPuntCom+=getValorCarta(listaBaraja.get(1));
-
                 break;
 
             case 1:
