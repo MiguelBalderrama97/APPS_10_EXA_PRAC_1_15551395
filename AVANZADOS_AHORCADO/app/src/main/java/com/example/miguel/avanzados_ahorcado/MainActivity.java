@@ -16,7 +16,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 //    LISTA DE PALABRAS
     private List<String> palabras = new ArrayList<>();
@@ -117,19 +117,31 @@ public class MainActivity extends AppCompatActivity {
                 txtPalabra.setText("m _ _ _ _ _");
                 break;
         }
-//        EVENTO DEL BOTON "INTENTAR DE NUEVO" QUE MANDA LLAMAR AL EVENTO onStart
-        btnNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onStart();
-            }
-        });
+    }
 
-//        EVENTO DEL BOTON "OK"
-        btnOK.setOnClickListener(new View.OnClickListener() {
-            final Dialog dlgMiDialog = new Dialog(MainActivity.this); //DECLARACIÓN E INSTANSIACIÓN DEL DIALOG
-            @Override
-            public void onClick(View v) {
+//    METODO PARA LLENAR LA LISTA CON LAS PALABRAS
+    private List<String> getAllWords(){
+        palabras.add("h o r m i g a");
+        palabras.add("m o v i l e s");
+        palabras.add("l a y o u t");
+        palabras.add("p a r t i d o");
+        palabras.add("m u n d o");
+        palabras.add("t o a s t");
+        palabras.add("a l e r t");
+        palabras.add("f u e g o");
+        palabras.add("l i s t");
+        palabras.add("m u s i c a");
+        return palabras;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.btnNew:
+                onStart();
+                break;
+            case R.id.btnOK:
+                final Dialog dlgMiDialog = new Dialog(MainActivity.this);
                 letra = etxtLetra.getText().toString(); // RECUPERAR LA CADENA QUE INTRODUJO EL USUARIO EN EL EDIT TEXT
                 if(letra.length() ==  0){ //SI LA CADENA VA EN BLANCO
                     Toast.makeText(MainActivity.this, "Ingrese una letra/palabra", Toast.LENGTH_SHORT).show();
@@ -218,22 +230,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 etxtLetra.setText(""); // LIMPIAR EL EDIT TEXT DE LA LETRA AL FINALIZAR EL EVENTO DEL BOTON "OK"
-            }
-        });
-    }
+                break;
+        }
 
-//    METODO PARA LLENAR LA LISTA CON LAS PALABRAS
-    private List<String> getAllWords(){
-        palabras.add("h o r m i g a");
-        palabras.add("m o v i l e s");
-        palabras.add("l a y o u t");
-        palabras.add("p a r t i d o");
-        palabras.add("m u n d o");
-        palabras.add("t o a s t");
-        palabras.add("a l e r t");
-        palabras.add("f u e g o");
-        palabras.add("l i s t");
-        palabras.add("m u s i c a");
-        return palabras;
     }
 }
