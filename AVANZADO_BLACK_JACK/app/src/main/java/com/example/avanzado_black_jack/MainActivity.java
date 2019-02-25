@@ -47,16 +47,16 @@ public class MainActivity extends AppCompatActivity {
 
         txtVwGanador = findViewById(R.id.txtVwGanador);
 
+        //Método para reborujar al inicio de la partida
         imShuffling();
     }
 
     public void onClick( View v){
         if(iTurno <5){
             repartir();
-            //txtVwGanador.setText("PuntUsu:"+iPuntUsu+" PuntCom:"+iPuntCom);
             iTurno++;
         }else if(iTurno ==5){
-            Toast.makeText(getApplicationContext(),"El ganado es:",Toast.LENGTH_SHORT).show();
+            //ültimo turno. el 6 es para si el usuario le vuelve a picar se sale a else de esta misma setencia
             iTurno =6;
         }else{
             Toast.makeText(getApplicationContext(),"Juego terminado",Toast.LENGTH_SHORT).show();
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * En cada caso se reparte una carta a cada jugador y se realiza la comprobación
+     * En cada caso se reparte una carta a cada jugador
      */
     public void repartir(){
         switch (iTurno){
@@ -132,20 +132,24 @@ public class MainActivity extends AppCompatActivity {
                 txtVwCarCincoUsu.setText(listaBaraja.get(8));
                 txtVwCarCincoCom.setText(listaBaraja.get(9));
 
-
                 iPuntUsu+=getValorCarta(listaBaraja.get(8));
                 iPuntCom+=getValorCarta(listaBaraja.get(9));
 
                 break;
         }
-
-
     }
 
+    /**
+     * Metodo para indicar si el juego se ha acabdo
+     * @param iPuntajeUsu Puntaje del usuario
+     * @param iPuntajeCom Puntaje de la computadora
+     * @param iTurn Turno en el que van
+     */
     public void isGameOver(int iPuntajeUsu,int iPuntajeCom,int iTurn){
-        String sGan = "";
-        boolean isOver = false;
+        String sGan = ""; //Variable que guarda quien gana
+        boolean isOver = false; //variable que indica si se termino la partida
         if(iTurn >= 5){
+            //Significa que no hay más turnos
             if(iPuntajeCom>iPuntajeUsu){
                 sGan = "el Humano";
                 isOver = true;
@@ -158,10 +162,10 @@ public class MainActivity extends AppCompatActivity {
                 if(iPuntajeCom==iPuntajeUsu){
                     sGan = "Un empate:'(";
                     isOver = true;
-                }else if(iPuntajeCom>21){
+                }else if(iPuntajeUsu<iPuntajeCom){
                     sGan = "el Humano";
                     isOver = true;
-                }else if(iPuntajeUsu>21){
+                }else if(iPuntajeCom<iPuntajeUsu){
                     sGan = "Los fierros";
                     isOver = true;
                 }
@@ -179,13 +183,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-        if (isOver){ mostrarDialogo("El ganador es:"+sGan+" punCom:"+iPuntajeCom+" punUs:"+iPuntajeUsu);}
+        if (isOver){ mostrarDialogo("El ganador es:"+sGan+" Humano:"+iPuntajeUsu+" Fierros:"+iPuntajeCom);}
 
     }
 
     public void mostrarDialogo(String sGan){
+        txtVwGanador.setText(sGan);
         new AlertDialog.Builder(this)
-                .setTitle("Se ha acabado esta vaian")
+                .setTitle("Se ha acabado esta vaina")
                 .setMessage(sGan)
                 .setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
                     @Override
@@ -198,14 +203,14 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton("Nel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(getApplicationContext(),"Nel krnl",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Destroy it",Toast.LENGTH_SHORT).show();
                     }
                 })
 
                 .setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(getApplicationContext(),"X krnl",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Nah",Toast.LENGTH_SHORT).show();
                     }
                 }).create().show();
     }
@@ -249,5 +254,4 @@ public class MainActivity extends AppCompatActivity {
     public void printBaraja(){
         System.out.println(Arrays.toString(listaBaraja.toArray()));
     }
-
 }
