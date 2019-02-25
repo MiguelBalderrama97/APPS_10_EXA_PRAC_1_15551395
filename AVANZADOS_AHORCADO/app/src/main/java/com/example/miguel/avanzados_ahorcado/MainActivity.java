@@ -58,6 +58,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtCant = findViewById(R.id.txtCant);
         cbxEX = findViewById(R.id.cbxEX);
 
+        //AGREGAR LISTENER A LOS BOTONES
+        btnNew.setOnClickListener(this);
+        btnOK.setOnClickListener(this);
+
 //        LLENAR EL ARRAYLIST CON ESTE METODO QUE DEVUELVE LA LISTA DE PALABRAS
         palabras = getAllWords();
 
